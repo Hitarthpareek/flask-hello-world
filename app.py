@@ -78,32 +78,17 @@ def summarize_text(input_text, num_sentences=2):
 
 
 app = Flask(__name__)
-
 @app.route('/api', methods=['GET'])
 
 
-
-
-
 def process_string():
-    to_send = {}
-    # inputchr = str(request.args['query'])
-    # answer = str(ord(inputchr))
-    # to_send['output']=answer
-    # return to_send
- #   Get the string from the request data
+    
     input_string = str(request.args['query'])
 
     # Check if input_string is provided
     if input_string is None:
         return jsonify({'error': 'No input string provided'}), 400
 
-    # Process the string (here, we just return the same string)
-    # processed_string = input_string
-
-    # # Return the processed string as JSON
-    # to_send['output'] = processed_string
-    # return to_send
     api_key = "660a65e32a73df400f66e17f"
     url = "https://api.scrapingdog.com/google/"
     params = {
@@ -130,7 +115,7 @@ def process_string():
             p_content = extract_body(html)
             p_contents.append(p_content)
 
-#handling none values
+
     p_contents = [p_content for p_content in p_contents if p_content is not None]
 
 
@@ -145,14 +130,7 @@ def process_string():
             final_summary.append(summary)
 
 
-  #  summary_dict = {i: ' '.join(summary.split()[:200]) for i, summary in enumerate(final_summary)}
-
-
     return final_summary
     
-
-
-
-
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run()
