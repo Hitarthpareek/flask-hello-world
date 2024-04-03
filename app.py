@@ -1,8 +1,8 @@
-from flask import Flask, request
-
 app = Flask(__name__)
 
-@app.route('/get', methods=['POST'])
-def echo_string():
-        return '1234'
+@app.route('/')
+def hello_world():
+    return 'Hello from git'
 
+if __name__ == "__main__":
+    app.run()
