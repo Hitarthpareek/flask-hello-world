@@ -1,7 +1,7 @@
 from flask import Flask
 app = Flask(__name__)
 
-@app.route('/get')
+@app.route('/api', methods=['GET'])
 def hello_world():
     input_string = request.json.get('input_string')
 
