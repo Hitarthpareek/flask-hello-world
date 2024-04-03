@@ -1,13 +1,14 @@
-from flask import Flask
+from flask import Flask, request, jsonify
+
 app = Flask(__name__)
 
 @app.route('/api', methods=['GET'])
 def hello_world():
-    input_string = request.json.get('input_string')
+    input_string = request.args.get('input_string')
 
     # Check if input_string is provided
     if input_string is None:
-        return jsonify({'error': 'No input string povided'}), 400
+        return jsonify({'error': 'No input string provided'}), 400
 
     # Process the string (here, we just return the same string)
     processed_string = input_string
