@@ -1,9 +1,19 @@
 from flask import Flask
 app = Flask(__name__)
 
-@app.route('/')
+@app.route('/get')
 def hello_world():
-    return 'Hello from git'
+    input_string = request.json.get('input_string')
+
+    # Check if input_string is provided
+    if input_string is None:
+        return jsonify({'error': 'No input string provided'}), 400
+
+    # Process the string (here, we just return the same string)
+    processed_string = input_string
+
+    # Return the processed string as JSON
+    return jsonify({'processed_string': processed_string})
 
 if __name__ == "__main__":
-    app.run()
+    app.run(host="0.0.0.0", port=5000)
