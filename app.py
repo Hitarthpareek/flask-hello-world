@@ -7,7 +7,7 @@ def hello_world():
 
     # Check if input_string is provided
     if input_string is None:
-        return jsonify({'error': 'No input string provided'}), 400
+        return jsonify({'error': 'No input string povided'}), 400
 
     # Process the string (here, we just return the same string)
     processed_string = input_string
