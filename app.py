@@ -127,14 +127,14 @@ def process_string():
         summary = summarize_text(input_text)
         if summary != '':
         # Truncate summary to 200 words
-            summary = ' '.join(summary.split()[:80])
+            summary = ' '.join(summary.split()[:60])
             final_summary.append(summary)
 
 
-    summary_dict = {i: ' '.join(summary.split()[:200]) for i, summary in enumerate(final_summary)}
+   # summary_dict = {i: ' '.join(summary.split()[:200]) for i, summary in enumerate(final_summary)}
 
 
-    return summary_dict
+    return final_summary
 
 if __name__ == "__main__":
     app.run()
