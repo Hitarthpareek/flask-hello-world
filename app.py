@@ -4,7 +4,7 @@ app = Flask(__name__)
 
 @app.route('/api', methods=['GET'])
 def hello_world():
-    input_string = request.args.get('input_string')
+    input_string = str(request.args['query'])
 
     # Check if input_string is provided
     if input_string is None:
