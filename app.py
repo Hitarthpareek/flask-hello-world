@@ -95,7 +95,7 @@ def process_string():
     params = {
         "api_key": api_key,
         "query": input_string,
-        "results": 10,
+        "results": 5,
         "country": "in",
         "page": 0
     }
