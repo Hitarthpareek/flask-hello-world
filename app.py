@@ -90,7 +90,7 @@ def process_string():
         return jsonify({'error': 'No input string provided'}), 400
 
 
-    api_key = "660a65e32a73df400f66e17f"
+    api_key = "660e7ccf63a2d21c5c78d429"
     url = "https://api.scrapingdog.com/google/"
     params = {
         "api_key": api_key,
