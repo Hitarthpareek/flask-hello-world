@@ -131,10 +131,10 @@ def process_string():
             final_summary.append(summary)
 
 
-  #  summary_dict = {i: ' '.join(summary.split()[:200]) for i, summary in enumerate(final_summary)}
+    summary_dict = {i: ' '.join(summary.split()[:200]) for i, summary in enumerate(final_summary)}
 
 
-    return final_summary
+    return summary_dict
 
 if __name__ == "__main__":
     app.run()
