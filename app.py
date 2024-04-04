@@ -52,6 +52,19 @@ def summarize_text(input_text, num_sentences=2):
     words = word_tokenize(input_text.lower())
     filtered_words = [word for word in words if word not in stop_words and not re.match(r"(https?://\S+)|(#\S+)", word)]
 
+    
+
+    filtered_sentences = []
+    for sentence in filtered_words:
+    # Tokenize the sentence into words
+        words_in_sentence = sentence.split()
+    # Check if all words in the sentence are alphanumeric and only contain commas, dashes, or exclamation marks
+        if all(re.match(r'^[a-zA-Z0-9,-!]+$', word) for word in words_in_sentence):
+            filtered_sentences.append(sentence)
+
+    filtered_words = filtered_sentences
+
+
     # Step 3: Create a frequency table of words
     freq_table = {}
     for word in filtered_words:
@@ -95,7 +108,7 @@ def process_string():
     params = {
         "api_key": api_key,
         "query": input_string,
-        "results": 5,
+        "results": 8,
         "country": "in",
         "page": 0
     }
@@ -127,7 +140,7 @@ def process_string():
         summary = summarize_text(input_text)
         if summary != '':
         # Truncate summary to 200 words
-            summary = ' '.join(summary.split()[:60])
+            summary = ' '.join(summary.split()[:80])
             final_summary.append(summary)
 
 
