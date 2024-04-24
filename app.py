@@ -98,8 +98,8 @@ def process_string():
         }
         extracted_results.append(extracted_result)
    
-    extracted_results_json = json.dumps(extracted_results, indent=4)
-    return extracted_results_json
+   # extracted_results_json = json.dumps(extracted_results, indent=4)
+    return extracted_results
 
 if __name__ == '__main__':
     app.run()
