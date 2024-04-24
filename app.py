@@ -97,7 +97,9 @@ def process_string():
             "snippet": result.get("snippet", "nosnip")  # If snippet is not available, put "nosnip"
         }
         extracted_results.append(extracted_result)
-    return extracted_results
+   
+    extracted_results_json = json.dumps(extracted_results, indent=4)
+    return extracted_results_json
 
 if __name__ == '__main__':
     app.run()
